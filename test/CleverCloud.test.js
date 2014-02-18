@@ -1,4 +1,4 @@
-var CleverCloudStrategy = require('../lib/strategy');
+var CleverCloudStrategy = require('../');
 
 describe('CleverCloudStrategy', function() {
 
