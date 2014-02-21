@@ -1,4 +1,4 @@
-Passport-Clevercloud [![Build Status](https://drone.io/github.com/Redsmin/passport-clevercloud/status.png)](https://drone.io/github.com/Redsmin/passport-clevercloud/latest)
+Passport-Clevercloud [![Build Status](https://drone.io/github.com/Redsmin/passport-clevercloud/status.png)](https://drone.io/github.com/Redsmin/passport-clevercloud/latest) [![Deps](https://david-dm.org/Redsmin/passport-clevercloud.png)](https://david-dm.org/Redsmin/passport-clevercloud)
 ====================
 
 Passportjs strategy for CleverCloud
