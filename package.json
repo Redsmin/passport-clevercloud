@@ -1,8 +1,8 @@
 {
   "name": "passport-clevercloud",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Passportjs strategy for CleverCloud",
-  "main": "strategy.js",
+  "main": "lib/strategy.js",
   "scripts": {
     "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js",
     "test2": "node_modules/.bin/mocha -w -G --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
