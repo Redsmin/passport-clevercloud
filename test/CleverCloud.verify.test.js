@@ -38,7 +38,7 @@ describe('CleverCloudStrategy', function() {
             var shasum             = crypto.createHash('sha1');
             var ID                 = 'abcdefghijklmnop';
             var reqTime            = Date.now()-100;
-            shasum.update(ID + ':' + reqTime + ':' + SSO_SALT);
+            shasum.update(ID + ':' + SSO_SALT + ':' + reqTime);
 
             req.body['id']        = ID;
             req.body['timestamp'] = reqTime;
