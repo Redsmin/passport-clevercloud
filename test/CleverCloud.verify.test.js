@@ -45,10 +45,14 @@ describe('CleverCloudStrategy', function () {
             request = req;
             req.body = {};
 
+            var shasum = crypto.createHash('sha1');
             var ID = 'abcdefghijklmnop';
+            var reqTime = Date.now() - 100;
+            shasum.update(ID + ':' + SSO_SALT + ':' + reqTime);
+
             req.body['id'] = ID;
-            req.body['timestamp'] = 1431703067707;
-            req.body['token'] = TOKEN;
+            req.body['timestamp'] = reqTime;
+            req.body['token'] = shasum.digest('hex');
             req.body['email'] = USER_EMAIL;
           })
           .authenticate();
@@ -72,11 +76,17 @@ describe('CleverCloudStrategy', function () {
           .req(function (req) {
             request = req;
             req.body = {};
+
+            var shasum = crypto.createHash('sha1');
             var ID = 'abcdefghijklmnop';
+            var reqTime = Date.now() - 100;
+            shasum.update(ID + ':' + SSO_SALT + ':' + reqTime);
+
             req.body['id'] = ID;
-            req.body['timestamp'] = '1431703067707';
-            req.body['token'] = TOKEN;
+            req.body['timestamp'] = reqTime + '';
+            req.body['token'] = shasum.digest('hex');
             req.body['email'] = USER_EMAIL;
+
           })
           .authenticate();
       });
