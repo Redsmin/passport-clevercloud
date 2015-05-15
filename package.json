@@ -4,8 +4,9 @@
   "description": "Passportjs strategy for CleverCloud",
   "main": "lib/strategy.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js",
-    "test2": "node_modules/.bin/mocha -w -G --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
+    "ci": "npm test && check-build",
+    "test": "mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js",
+    "test-watch": "mocha -w -G --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,7 @@
   },
   "dependencies": {
     "passport-strategy": "~1.0.0",
-    "moment": "~2.5.1"
+    "moment": "2.*.*"
   },
   "engines": {
     "node": ">= 0.10.12"
@@ -32,6 +33,7 @@
   "devDependencies": {
     "chai-passport-strategy": "~0.2.0",
     "chai": "~1.9.0",
-    "mocha": "~1.17.1"
+    "mocha": "~1.17.1",
+    "check-build": "*"
   }
 }
