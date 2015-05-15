@@ -47,7 +47,7 @@ describe('CleverCloudStrategy', function () {
 
             var shasum = crypto.createHash('sha1');
             var ID = 'abcdefghijklmnop';
-            var reqTime = Date.now() - 100;
+            var reqTime = now();
             shasum.update(ID + ':' + SSO_SALT + ':' + reqTime);
 
             req.body['id'] = ID;
@@ -68,7 +68,7 @@ describe('CleverCloudStrategy', function () {
         expect(info.message).to.equal('Hello');
       });
 
-      it('should handle timestamp as a string', function (done) {
+      it('should handle timestamp as a string and in seconds instead of ms', function (done) {
         chai.passport.use(strategy)
           .success(function (u, i) {
             done();
@@ -79,11 +79,11 @@ describe('CleverCloudStrategy', function () {
 
             var shasum = crypto.createHash('sha1');
             var ID = 'abcdefghijklmnop';
-            var reqTime = Date.now() - 100;
+            var reqTime = now();
             shasum.update(ID + ':' + SSO_SALT + ':' + reqTime);
 
             req.body['id'] = ID;
-            req.body['timestamp'] = reqTime + '';
+            req.body['timestamp'] = reqTime;
             req.body['token'] = shasum.digest('hex');
             req.body['email'] = USER_EMAIL;
 
@@ -95,3 +95,7 @@ describe('CleverCloudStrategy', function () {
   });
 
 });
+
+function now() {
+  return Math.round((Date.now() - 100) / 1000);
+}
