@@ -33,7 +33,7 @@
   "devDependencies": {
     "chai-passport-strategy": "~1.0.0",
     "chai": "~3.5.0",
-    "mocha": "~3.0.2",
+    "mocha": "~7.1.2",
     "check-build": "*"
   }
 }
